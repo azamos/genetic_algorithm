@@ -18,13 +18,11 @@ def evolution(population):
     #will take only the top half candidates for mating 
     viable_candidates = graded_population[n//2:n]
     next_generation = []
-    for i in range(0,n//2,2):
-        if i == n//2:
-            break
+    for i in range(1,n//2,2):
         cross_point = random.randint(0,n-1)
-        parent1 = viable_candidates[i]
+        parent1 = viable_candidates[i-1]
         child = parent1[0:cross_point]
-        parent2 = viable_candidates[i+1]
+        parent2 = viable_candidates[i]
         remaining_parent2 = [p for p in parent2 if p not in child]
         child += remaining_parent2
         dice_roll = random.randint(1,100)
